@@ -10,10 +10,13 @@ gallery.innerHTML += onCreatePlot(galleryItems);
 
 function onCreatePlot(galleryItems) {
   return galleryItems
-    .map(element => {
-      return `<a class="gallery__item" href="${element.original}">
-        <img class="gallery__image" src="${element.preview}" alt="${element.description}"/>
-        </a>`;
+    .map(({ preview, original, description }) => {
+      return `
+        <a class="gallery__item" href="${original}">
+        <img class="gallery__image" src="${preview}" 
+         alt="${description}"  />
+        </a>
+      `;
     })
     .join('');
 }
